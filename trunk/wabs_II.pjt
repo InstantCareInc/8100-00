@@ -1,0 +1,193 @@
+;Codewright Project File (do not remove or modify this line)
+[ProjInit]
+ConfigSetExtMode=2
+ProjSetConfigFlags=0x0c110940
+
+[State]
+SysSetCwd='C:\CAR_cost_reduced\microchip'
+SrchSetFlags=0x041628ba
+SrchSetAgainFlags=0x0416288a,0
+SrchSetAgainFlags=0x061628ba,1
+SrchSetAttrElements=
+SrchSetAgainAttrElements=
+FileSortMode=0x1
+_StateView='C:\venture radios\Gen II\WABS2\network.h',110,145,732,348,-1,-1,53,5,45,1,2,'',0x0090004c,0,80,0,0,'',0,1
+_StateView='C:\venture radios\Gen II\WABS2\cpac.h',66,87,763,311,-1,-1,95,32,80,1,3,'',0x0090004c,0,80,0,0,'',0,2
+_StateView='C:\venture radios\Gen II\WABS2\wabs.c',0,0,741,382,-1,-1,1954,59,1943,1,4,'',0x0090004c,0,80,0,0,'',0,3
+_StateView='C:\venture radios\Gen II\WABS2\serialA.c',66,87,733,432,-1,-1,574,6,563,1,5,'',0x0090004c,0,80,0,0,'',0,4
+_StateView='C:\venture radios\Gen II\WABS2\cpu.c',0,0,800,211,-1,-1,763,44,763,1,6,'',0x0090004c,0,80,0,0,'',0,5
+_StateView='C:\venture radios\Gen II\WABS2\cpu.h',66,87,783,212,-1,-1,310,37,305,1,7,'',0x0090004c,0,80,0,0,'',0,6
+_StateView='C:\venture radios\Gen II\WABS2\wabs.h',66,87,785,232,-1,-1,46,25,34,1,1,'',0x0090005c,0,80,0,0,'',0,7
+_StateView='C:\venture radios\Gen II\WABS2\network.c',132,174,732,348,-1,-1,151,36,145,1,8,'',0x0090004c,0,80,0,0,'',0,8
+_StateView='C:\venture radios\Gen II\WABS2\cpac.c',88,116,732,432,-1,-1,395,55,380,1,9,'',0x0090004c,0,80,0,0,'',0,9
+_StateBuffer='C:\venture radios\Gen II\WABS2\network.h',0x0400048e,53,5,25,'5 9','',0x0,'',1,72,0,0,'',''
+_StateBuffer='C:\venture radios\Gen II\WABS2\cpac.h',0x0400048e,95,32,25,'5 9','',0x0,'',1,72,0,0,'',''
+_StateBuffer='C:\venture radios\Gen II\WABS2\wabs.c',0x0400048e,1954,59,25,'5 9','',0x0,'',1,72,0,0,'',''
+_StateBuffer='C:\venture radios\Gen II\WABS2\serialA.c',0x0400048e,574,6,25,'5 9','',0x0,'',1,72,0,0,'',''
+_StateBuffer='C:\venture radios\Gen II\WABS2\cpu.c',0x0c00048e,763,44,25,'5 9','',0x0,'',1,72,0,0,'',''
+_StateBuffer='C:\venture radios\Gen II\WABS2\cpu.h',0x0400048e,310,37,25,'5 9','',0x0,'',1,72,0,0,'',''
+_StateBuffer='C:\venture radios\Gen II\WABS2\wabs.h',0x0c00048e,46,25,25,'5 9','',0x0,'',1,72,1,0,'',''
+_StateBuffer='C:\venture radios\Gen II\WABS2\network.c',0x0400048e,151,36,25,'5 9','',0x0,'',1,72,0,0,'',''
+_StateBuffer='C:\venture radios\Gen II\WABS2\cpac.c',0x0c00048e,395,55,25,'5 9','',0x0,'',1,72,0,0,'',''
+_StateHistory=FILELIST,'C:\venture radios\Gen II\WABS2\wabs.c','C:\venture radios\Gen II\WABS2\wabs.h','C:\venture radios\Gen II\WABS2\cpac.h','C:\venture radios\Gen II\WABS2\flash.c','C:\venture radios\Gen II\WABS2\cpac.c','C:\venture radios\Gen II\WABS2\cpu.c','C:\venture radios\Gen II\WABS2\cpu.h','C:\venture radios\Gen II\WABS2\serialA.c','C:\venture radios\Gen II\WABS2\serialB.c'
+_StateHistory=SEARCH,'CpacSaveOutgoingMessage','ALERT_STRUCT','send_rs485_res','data[','memcpy','POLL_IDLE','data_counter','POLL_DATA','poll_state','data_p'
+_StateHistory=REPLACE,'_command','data','RSSI','network','NETWORK','Network','NetworkHost_send_rs485_data','NT','rdata','tdata'
+_StateHistory=EDITFILE,'C:\CPAC - Wandering\SBUS.H','C:\venture radios\Gen II\WABS2\Debug\List\wabs.map','C:\venture radios\Gen II\WABS2\Debug\Obj\cpac.r43','C:\venture radios\Gen II\WABS2\Debug\Obj\cpu.r43','C:\venture radios\Gen II\WABS2\Debug\Exe\wabs.d43','C:\venture radios\Gen II\WABS2\Debug\List\wabs.map','C:\CAR_cost_reduced\SBUS.H','C:\CAR_cost_reduced\SBUS.C','C:\venture radios\Gen II\WABS2\network.h','C:\venture radios\Gen II\WABS2\network.c'
+_StateHistory=DOCUMENTVISIT,'334         25          C:\venture radios\Gen II\WABS2\wabs.h','1007        14          C:\venture radios\Gen II\WABS2\wabs.c','395         55          C:\venture radios\Gen II\WABS2\cpac.c','349         5           C:\venture radios\Gen II\WABS2\serialB.c','1869        26          C:\venture radios\Gen II\WABS2\wabs.c','219         5           C:\venture radios\Gen II\WABS2\serialB.c','82          29          C:\venture radios\Gen II\WABS2\cpac.h','1961        75          C:\venture radios\Gen II\WABS2\wabs.c','95          32          C:\venture radios\Gen II\WABS2\cpac.h','1954        59          C:\venture radios\Gen II\WABS2\wabs.c'
+_StateDocumentVisit=10
+
+[Files]
+.\cpu.c
+.\cpu.h
+.\flash.c
+.\serialA.c
+.\serialB.c
+.\timers.c
+.\wabs.c
+.\wabs.h
+.\cpac.h
+.\cpac.c
+.\network.h
+.\network.c
+
+[Editor]
+_RestoreSysFlags=0x434d37fa, 0xfffffffc, 0
+VCSProject=''
+VCSProjectPath=''
+VCSProjectLocalPath=''
+ScrapSetCount=1
+ClipboardSetCount=1
+ClipboardEnableSepStr=1
+ClipboardSetSepStr='\r\n',0
+ClipboardEnableTermStr=1
+ClipboardSetTermStr='\r\n',0
+
+[Tools]
+ToolDeleteList 
+
+[Compiler]
+TagSetCmd='"${HOME}${WTAGS}" -oc -d -t"${TAGFILE}.tag" -p"${TAGFILE}.ptg"',0x8000060
+BrowseSetFile='C:\Program Files\Borland\CodeWright\tagfile.ptg'
+TagSetFile='C:\Program Files\Borland\CodeWright\tagfile.tag'
+CompilerAddCmdEx='Debug|$_cw_proj_hash_$','',1073741904,'',80,'${FTEE} nmake',176,'${FTEE} nmake',176,'${FTEE} nmake',176,'${FTEE} nmake',176,'',0,'',0,'_ErrorInfoDefault','','','proj.err','%x'
+CompilerAddResponse='Debug|$_cw_proj_hash_$',
+CompilerAddCmdEx='Release|$_cw_proj_hash_$','',1073741904,'',80,'${FTEE} nmake',176,'${FTEE} nmake',176,'${FTEE} nmake',176,'${FTEE} nmake',176,'',0,'',0,'_ErrorInfoDefault','','','proj.err','%x'
+CompilerAddResponse='Release|$_cw_proj_hash_$',
+CompilerNewExt=.v
+CompilerNewExt=.htm
+CompilerNewExt=Release|.java
+CompilerNewExt=Release|.asp
+CompilerNewExt=Debug|.rul
+CompilerNewExt=Debug|.rc
+CompilerNewExt=Release|.nrx
+CompilerNewExt=.bas
+CompilerNewExt=.awk
+CompilerNewExt=Debug|.awk
+CompilerNewExt=.mac
+CompilerNewExt=Release|.txt
+CompilerNewExt=Release|.tk
+CompilerNewExt=Debug|.php
+CompilerNewExt=Release|.php
+CompilerNewExt=.jsp
+CompilerNewExt=.cfml
+CompilerNewExt=Release|.bat
+CompilerNewExt=.adb
+CompilerNewExt=.c
+CompilerNewExt=.vhd
+CompilerNewExt=.pl
+CompilerNewExt=Release|.awk
+CompilerNewExt=Debug|.jav
+CompilerNewExt=Debug|.java
+CompilerNewExt=Release|.rc
+CompilerNewExt=Release|.cfml
+CompilerNewExt=Release|.bas
+CompilerNewExt=Release|.adb
+CompilerNewExt=Release|.xml
+CompilerNewExt=.pas
+CompilerNewExt=.h
+CompilerNewExt=.tk
+CompilerNewExt=Release|.tcl
+CompilerNewExt=Debug|.bas
+CompilerNewExt=Debug|.txt
+CompilerNewExt=Debug|.tk
+CompilerNewExt=Debug|.tcl
+CompilerNewExt=.rul
+CompilerNewExt=Debug|.html
+CompilerNewExt=Release|.htm
+CompilerNewExt=Release|.jav
+CompilerNewExt=Release|.cs
+CompilerNewExt=.asp
+CompilerNewExt=Release|.pas
+CompilerNewExt=Release|.pl
+CompilerNewExt=Debug|.cob
+CompilerNewExt=Debug|.pas
+CompilerNewExt=Release|.v
+CompilerNewExt=Debug|.nrx
+CompilerNewExt=.js
+CompilerNewExt=Debug|.js
+CompilerNewExt=.cob
+CompilerNewExt=Release|.ini
+CompilerNewExt=.tcl
+CompilerNewExt=Debug|.sqlj
+CompilerNewExt=.rc
+CompilerNewExt=.php
+CompilerNewExt=Debug|.jsp
+CompilerNewExt=Release|.js
+CompilerNewExt=Release|.html
+CompilerNewExt=Release|.sqlj
+CompilerNewExt=Debug|.htm
+CompilerNewExt=.ini
+CompilerNewExt=Release|.vhd
+CompilerNewExt=Debug|.v
+CompilerNewExt=Debug|.pl
+CompilerNewExt=Release|.jsp
+CompilerNewExt=.html
+CompilerNewExt=Release|.cob
+CompilerNewExt=.bat
+CompilerNewExt=.cs
+CompilerNewExt=Debug|.cs
+CompilerNewExt=Debug|.vhd
+CompilerNewExt=Debug|.bat
+CompilerNewExt=.cpp
+CompilerNewExt=.*
+CompilerNewExt=Debug|.adb
+CompilerNewExt=Debug|.asp
+CompilerNewExt=Debug|.ini
+CompilerNewExt=.cxx
+CompilerNewExt=.txt
+CompilerNewExt=.asm
+CompilerNewExt=.hpp
+CompilerNewExt=.nrx
+CompilerNewExt=.sqlj
+CompilerNewExt=Release|.rul
+CompilerNewExt=Debug|.cfml
+CompilerNewExt=.jav
+CompilerNewExt=.java
+CompilerNewExt=.xml
+CompilerNewExt=Debug|.xml
+CFGSetActive='Release'
+
+[VersionControl:PVCS]
+VCSSetCmd=VCS_CHECKIN_ID,'put -n -T@"%Q" -M@"%Q" "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKINLOCK_ID,'put -n -T@"%Q" -M@"%Q" -l "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKOUT_ID,'get -y "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKOUTLOCK_ID,'get -y -l "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKLOCK_ID,'vcs -y -l "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKUNLOCK_ID,'vcs -y -u "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKLABEL_ID,'vcs -y -v"${VCSLABEL}" "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKLOG_ID,'vlog "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKPROP_ID,'vlog -b "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKDIFF_ID,'vdiff -r "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKMENU_ID,'pvcsvmwn',0x8000000
+VCSSetCmd=VCS_ADD_ID,'vcs -i -t@"%Q" "%b%e"',0x8000040
+VCSSetCmd=VCS_REMOVE_ID,'del /f "%b%{??v|___}e"',0x8000040
+
+[Project]
+ConfigSetUserMakefile=''
+ConfigSetUserMakefileParser=''
+ConfigSetUserMakefileTimeStamp=0
+ConfigSetUserMakefileAutoSync=0
+ConfigSetLinkDBFilename='C:\Program Files\Borland\CodeWright\cwright.ldb'
+ConfigSetMarkDBFilename='C:\Program Files\Borland\CodeWright\cwright.mrk'
+ConfigSetSymbolDBFilename='C:\venture radios\Gen II\WABS2\wabs_II.sbl'
+EditSetPath=''
