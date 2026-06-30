@@ -9,7 +9,7 @@ Firmware for the **LifeLine Wireless Link** (WABS — Wireless Alert Buffer Syst
 | **MCU** | Texas Instruments MSP430F1611 |
 | **RF module** | MaxStream / Digi XT09 (9600 baud serial) |
 | **Toolchain** | IAR Embedded Workbench for MSP430 |
-| **Output image** | `trunk/SW-057106801.hex` |
+| **Output image** | [`WirelessLink620.for.PC-CAWM.hex`](https://github.com/InstantCareInc/8100-00/releases/download/v6.20/WirelessLink620.for.PC-CAWM.hex) ([v6.20 release](https://github.com/InstantCareInc/8100-00/releases/tag/v6.20)) |
 
 ## Overview
 
@@ -45,7 +45,7 @@ A single firmware image supports both roles. The main loop branches on `host_uni
     ├── timers.c          # Low-resolution software timers
     ├── flash.c           # Non-volatile storage for radio parameters
     ├── cpac.c / cpac.h   # CPAC message handling
-    └── SW-057106801.hex  # Pre-built firmware image
+    └── Debug/            # IAR build output (.d43, .hex)
 ```
 
 Legacy project files (`wabs_II.pjt`, `WL.Opt`) from earlier toolchains are retained for reference but are not the active build system.
@@ -58,11 +58,11 @@ Legacy project files (`wabs_II.pjt`, `WL.Opt`) from earlier toolchains are retai
 4. Build the **Debug** configuration (Project → Make).
 5. Output files are written to `trunk/Debug/Exe/` (`.d43` debug image) and `trunk/Debug/Obj/`.
 
-To produce a release HEX file for programming, use the IAR output converter or your preferred MSP430 programming tool to export from the built image.
+To produce a release HEX file for programming, use the IAR output converter or your preferred MSP430 programming tool to export from the built image. Pre-built images for each version are published on [GitHub Releases](https://github.com/InstantCareInc/8100-00/releases).
 
 ## Programming
 
-Program the target MSP430F1611 using the generated HEX/DFW image and your standard LifeLine programming fixture or MSP430 programmer. A known-good image is included at `trunk/SW-057106801.hex`.
+Program the target MSP430F1611 using the Release HEX from [GitHub Releases](https://github.com/InstantCareInc/8100-00/releases/tag/v6.20) or your locally built image, and your standard LifeLine programming fixture or MSP430 programmer.
 
 On power-up, the 3-digit LED display shows the firmware version for two seconds (e.g. **620** for v6.20), followed by boot progress codes (**C1**, **C2**, **C3**) during initialization.
 
