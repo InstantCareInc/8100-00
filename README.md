@@ -5,7 +5,7 @@ Firmware for the **LifeLine Wireless Link** (WABS — Wireless Alert Buffer Syst
 | | |
 |---|---|
 | **Part number** | 8100-00 |
-| **Firmware version** | 6.20 (`VERSION_MAJOR` / `VERSION_MINOR` in `wabs.h`) |
+| **Firmware version** | 6.16 (`VERSION_MAJOR` / `VERSION_MINOR` in `wabs.h`) |
 | **MCU** | Texas Instruments MSP430F1611 |
 | **RF module** | MaxStream / Digi XT09 (9600 baud serial) |
 | **Toolchain** | IAR Embedded Workbench for MSP430 |
@@ -64,7 +64,7 @@ To produce a release HEX file for programming, use the IAR output converter or y
 
 Program the target MSP430F1611 using the generated HEX/DFW image and your standard LifeLine programming fixture or MSP430 programmer. A known-good image is included at `trunk/SW-057106801.hex`.
 
-On power-up, the 3-digit LED display shows the firmware version for two seconds (e.g. **620** for v6.20), followed by boot progress codes (**C1**, **C2**, **C3**) during initialization.
+On power-up, the 3-digit LED display shows the firmware version for two seconds (e.g. **616** for v6.16), followed by boot progress codes (**C1**, **C2**, **C3**) during initialization.
 
 ## Hardware configuration (DIP switches)
 

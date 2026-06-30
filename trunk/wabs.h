@@ -149,7 +149,7 @@
                                    * n => Beta version Id
                                    */
 #define VERSION_MAJOR 6
-#define VERSION_MINOR 20
+#define VERSION_MINOR 16
 
 #define AMBIENT_MAX                    80
 
@@ -246,8 +246,8 @@
 #endif
 
 #define TIMEOUT_HOST_RS485_INPUT   2
-#define TIMEOUT_REMOTE_RS485_INPUT 6
-//#define TIMEOUT_REMOTE_RS485_INPUT 2                                        // bh - v2.13
+//#define TIMEOUT_REMOTE_RS485_INPUT 4
+#define TIMEOUT_REMOTE_RS485_INPUT 2                                        // bh - v2.13
 #define TIMEOUT_RADIO_INPUT        (TIMER_LO_RES_TICKS_PER_SECOND - (TIMER_LO_RES_TICKS_PER_SECOND / 4))
 #define TIMEOUT_RADIO_SHORT_INPUT  15
 #define TIMEOUT_RS485_OUTPUT       (TIMER_LO_RES_TICKS_PER_SECOND / 5)
