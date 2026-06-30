@@ -8,8 +8,8 @@ Firmware for the **LifeLine Wireless Link** (WABS — Wireless Alert Buffer Syst
 | **Firmware version** | 6.16 (`VERSION_MAJOR` / `VERSION_MINOR` in `wabs.h`) |
 | **MCU** | Texas Instruments MSP430F1611 |
 | **RF module** | MaxStream / Digi XT09 (9600 baud serial) |
-| **Toolchain** | IAR Embedded Workbench for MSP430 |
-| **Output image** | `trunk/SW-057106801.hex` |
+| **Toolchain** | Texas Instruments Code Composer Studio 21.2.x (MSP430 compiler 21.6.x) |
+| **Output image** | `8100-00/Release/8100-00.hex` |
 
 ## Overview
 
@@ -34,35 +34,33 @@ A single firmware image supports both roles. The main loop branches on `host_uni
 ## Repository layout
 
 ```
-8100-00/
-└── trunk/
-    ├── wabs.eww          # IAR workspace (open this to build)
-    ├── wabs.ewp          # IAR project
-    ├── wabs.c / wabs.h   # Main application and protocol logic
-    ├── cpu.c / cpu.h     # MSP430 hardware abstraction (GPIO, ADC, LEDs, DIP switches)
-    ├── serialA.c         # UART driver — MaxStream RF module
-    ├── serialB.c         # UART driver — RS-485 bus
-    ├── timers.c          # Low-resolution software timers
-    ├── flash.c           # Non-volatile storage for radio parameters
-    ├── cpac.c / cpac.h   # CPAC message handling
-    └── SW-057106801.hex  # Pre-built firmware image
+8100-00/                     # Repository root
+├── README.md
+└── 8100-00/                 # CCS project — open this folder in CCS
+    ├── .project / .cproject
+    ├── wabs.c / wabs.h        # Main application and protocol logic
+    ├── cpu.c / cpu.h          # MSP430 hardware abstraction
+    ├── serialA.c / serialB.c  # UART drivers (radio and RS-485)
+    ├── timers.c
+    ├── cpac.c / cpac.h
+    ├── msp430_bitaccess.h
+    ├── lnk_msp430f1611.cmd
+    ├── targetConfigs/
+    ├── Debug/
+    └── Release/               # Release build output (8100-00.hex)
 ```
-
-Legacy project files (`wabs_II.pjt`, `WL.Opt`) from earlier toolchains are retained for reference but are not the active build system.
 
 ## Building
 
-1. Install **IAR Embedded Workbench for MSP430** (project was last built with IAR C/C++ Compiler V7.10.x; newer IAR versions may require project migration).
-2. Open `trunk/wabs.eww` in IAR.
-3. Confirm the target device is **MSP430F1611** (Project → Options → General Options → Device).
-4. Build the **Debug** configuration (Project → Make).
-5. Output files are written to `trunk/Debug/Exe/` (`.d43` debug image) and `trunk/Debug/Obj/`.
-
-To produce a release HEX file for programming, use the IAR output converter or your preferred MSP430 programming tool to export from the built image.
+1. Install **Code Composer Studio** with the **MSP430 compiler** (project built with CCS 21.2 / MSP430 compiler 21.6.2.LTS).
+2. Open the CCS project folder `8100-00/8100-00/` in CCS (File → Open Projects from File System).
+3. Confirm the target device is **MSP430F1611** (Project → Properties → General).
+4. Build **Debug** for JTAG debugging, or **Release** for the production HEX image.
+5. Release output is written to `8100-00/Release/8100-00.hex`.
 
 ## Programming
 
-Program the target MSP430F1611 using the generated HEX/DFW image and your standard LifeLine programming fixture or MSP430 programmer. A known-good image is included at `trunk/SW-057106801.hex`.
+Program the target MSP430F1611 using the Release HEX image and your standard LifeLine programming fixture or MSP430 programmer.
 
 On power-up, the 3-digit LED display shows the firmware version for two seconds (e.g. **616** for v6.16), followed by boot progress codes (**C1**, **C2**, **C3**) during initialization.
 
@@ -129,7 +127,7 @@ Diagnostic and test behavior is controlled by `#define` flags in `wabs.h` and `c
 
 ## Version history
 
-Tracked releases are maintained on git branches `v616` and `v620`. The only source difference between v6.16 and v6.20 is in `trunk/wabs.h` — no `.c` files changed.
+Tracked releases are maintained on git branches `v616` and `v620`. The only source difference between v6.16 and v6.20 is in `wabs.h` — no `.c` files changed.
 
 | Version | Git branch | LED display | Changes |
 |---------|------------|-------------|---------|
@@ -140,4 +138,4 @@ The `TIMEOUT_REMOTE_RS485_INPUT` value is used in the remote polling state machi
 
 ## History
 
-Original development by Venture Technologies, Inc. (Tom Goltz, Bob Halliday) for LifeLine, 2005–2007. The codebase traces back to the WABS2 (Gen 2) hardware platform, ported from an earlier PIC-based WABS1 design to the MSP430.
+Original development by Venture Technologies, Inc. (Tom Goltz, Bob Halliday) for LifeLine, 2005–2007. The codebase traces back to the WABS2 (Gen 2) hardware platform, ported from an earlier PIC-based WABS1 design to the MSP430. Migrated from IAR Embedded Workbench to Code Composer Studio in 2026.

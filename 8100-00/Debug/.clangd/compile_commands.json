@@ -1,0 +1,32 @@
+[
+   {
+      "directory" : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/Debug",
+      "command"   : "clang++ -I\"C:/ti/ccs2100/ccs/ccs_base/msp430/include\" -I\"C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00\" -I\"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-msp430_21.6.2.LTS/include\" -D__MSP430F1611__ -xc",
+      "file"      : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/cpac.c"
+   },
+   {
+      "directory" : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/Debug",
+      "command"   : "clang++ -I\"C:/ti/ccs2100/ccs/ccs_base/msp430/include\" -I\"C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00\" -I\"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-msp430_21.6.2.LTS/include\" -D__MSP430F1611__ -xc",
+      "file"      : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/cpu.c"
+   },
+   {
+      "directory" : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/Debug",
+      "command"   : "clang++ -I\"C:/ti/ccs2100/ccs/ccs_base/msp430/include\" -I\"C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00\" -I\"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-msp430_21.6.2.LTS/include\" -D__MSP430F1611__ -xc",
+      "file"      : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/serialA.c"
+   },
+   {
+      "directory" : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/Debug",
+      "command"   : "clang++ -I\"C:/ti/ccs2100/ccs/ccs_base/msp430/include\" -I\"C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00\" -I\"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-msp430_21.6.2.LTS/include\" -D__MSP430F1611__ -xc",
+      "file"      : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/serialB.c"
+   },
+   {
+      "directory" : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/Debug",
+      "command"   : "clang++ -I\"C:/ti/ccs2100/ccs/ccs_base/msp430/include\" -I\"C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00\" -I\"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-msp430_21.6.2.LTS/include\" -D__MSP430F1611__ -xc",
+      "file"      : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/timers.c"
+   },
+   {
+      "directory" : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/Debug",
+      "command"   : "clang++ -I\"C:/ti/ccs2100/ccs/ccs_base/msp430/include\" -I\"C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00\" -I\"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-msp430_21.6.2.LTS/include\" -D__MSP430F1611__ -xc",
+      "file"      : "C:/Users/Austin/Medical Alert/Instant Care Engineering - Lifeline/Wireless Link/Firmware/8100-00/8100-00/wabs.c"
+   }
+]
