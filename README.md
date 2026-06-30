@@ -5,7 +5,7 @@ Firmware for the **LifeLine Wireless Link** (WABS — Wireless Alert Buffer Syst
 | | |
 |---|---|
 | **Part number** | 8100-00 |
-| **Firmware version** | 6.16 (`VERSION_MAJOR` / `VERSION_MINOR` in `wabs.h`) |
+| **Firmware version** | 7.00 (`VERSION_MAJOR` / `VERSION_MINOR` in `wabs.h`) |
 | **MCU** | Texas Instruments MSP430F1611 |
 | **RF module** | MaxStream / Digi XT09 (9600 baud serial) |
 | **Toolchain** | Texas Instruments Code Composer Studio 21.2.x (MSP430 compiler 21.6.x) |
@@ -34,20 +34,26 @@ A single firmware image supports both roles. The main loop branches on `host_uni
 ## Repository layout
 
 ```
-8100-00/                     # Repository root
+8100-00/
 ├── README.md
-└── 8100-00/                 # CCS project — open this folder in CCS
-    ├── .project / .cproject
-    ├── wabs.c / wabs.h        # Main application and protocol logic
-    ├── cpu.c / cpu.h          # MSP430 hardware abstraction
-    ├── serialA.c / serialB.c  # UART drivers (radio and RS-485)
-    ├── timers.c
-    ├── cpac.c / cpac.h
-    ├── msp430_bitaccess.h
-    ├── lnk_msp430f1611.cmd
+└── 8100-00/                          # CCS project — open this folder in CCS
+    ├── .ccsproject
+    ├── .clangd
+    ├── .cproject
+    ├── .project
+    ├── .settings/
+    ├── wabs.c / wabs.h                 # Main application, protocol logic, and entry point
+    ├── cpu.c / cpu.h                   # MSP430 hardware abstraction (GPIO, ADC, LEDs, DIP switches)
+    ├── serialA.c / serialB.c           # UART drivers for the radio module and RS-485 bus
+    ├── timers.c                        # Low-resolution software timers and Timer B ISR
+    ├── cpac.c / cpac.h                 # CPAC message handling
+    ├── msp430_bitaccess.h              # IAR-style port bitfield access for TI compiler
+    ├── lnk_msp430f1611.cmd             # Linker memory map for the MSP430F1611
     ├── targetConfigs/
-    ├── Debug/
-    └── Release/               # Release build output (8100-00.hex)
+    │   ├── MSP430F1611.ccxml
+    │   └── readme.txt
+    ├── Debug/                          # Debug build output (.out, .map)
+    └── Release/                        # Release build output (8100-00.hex)
 ```
 
 ## Building
@@ -62,7 +68,7 @@ A single firmware image supports both roles. The main loop branches on `host_uni
 
 Program the target MSP430F1611 using the Release HEX image and your standard LifeLine programming fixture or MSP430 programmer.
 
-On power-up, the 3-digit LED display shows the firmware version for two seconds (e.g. **616** for v6.16), followed by boot progress codes (**C1**, **C2**, **C3**) during initialization.
+On power-up, the 3-digit LED display shows the firmware version for two seconds (e.g. **700** for v7.00), followed by boot progress codes (**C1**, **C2**, **C3**) during initialization.
 
 ## Hardware configuration (DIP switches)
 
@@ -127,15 +133,16 @@ Diagnostic and test behavior is controlled by `#define` flags in `wabs.h` and `c
 
 ## Version history
 
-Tracked releases are maintained on git branches `v616` and `v620`. The only source difference between v6.16 and v6.20 is in `wabs.h` — no `.c` files changed.
+Tracked releases are maintained on git branches `v700`, `v616`, and `v620`. **v7.00** was forked from **v6.16** — it has no functional changes relative to that release, but it does not include the RS-485 timing change introduced in **v6.20**.
 
 | Version | Git branch | LED display | Changes |
 |---------|------------|-------------|---------|
-| **6.16** | `v616` | 616 | Baseline release. `TIMEOUT_REMOTE_RS485_INPUT` = 2 (~16 ms inter-byte timeout during remote RS-485 polling). |
-| **6.20** | `v620` | 620 | Version bump. `TIMEOUT_REMOTE_RS485_INPUT` increased from 2 to 6 (~47 ms), giving remote units ~3× longer to receive RS-485 replies from field devices before abandoning a poll. Host RS-485 timing unchanged. |
+| **7.00** | `v700` | 700 | Forked from v6.16. Toolchain migration from IAR Embedded Workbench to Code Composer Studio; no functional firmware changes from v6.16. Does not include the v6.20 `TIMEOUT_REMOTE_RS485_INPUT` change. |
+| **6.20** | `v620` | 620 | `TIMEOUT_REMOTE_RS485_INPUT` increased from 2 to 6 (~47 ms), giving remote units ~3× longer to receive RS-485 replies from field devices before abandoning a poll. Host RS-485 timing unchanged. |
+| **6.16** | `v616` | 616 | Baseline IAR release. `TIMEOUT_REMOTE_RS485_INPUT` = 2 (~16 ms inter-byte timeout during remote RS-485 polling). |
 
 The `TIMEOUT_REMOTE_RS485_INPUT` value is used in the remote polling state machine (`POLL_DATA` in `wabs.c`). The timer resets on each received byte, so it acts as an inter-byte gap timeout rather than a total message timeout.
 
 ## History
 
-Original development by Venture Technologies, Inc. (Tom Goltz, Bob Halliday) for LifeLine, 2005–2007. The codebase traces back to the WABS2 (Gen 2) hardware platform, ported from an earlier PIC-based WABS1 design to the MSP430. Migrated from IAR Embedded Workbench to Code Composer Studio in 2026.
+Original development by Venture Technologies, Inc. (Tom Goltz, Bob Halliday) for LifeLine, 2005–2007. The codebase traces back to the WABS2 (Gen 2) hardware platform, ported from an earlier PIC-based WABS1 design to the MSP430. Migrated from IAR Embedded Workbench to Code Composer Studio in 2026 (v7.00).
