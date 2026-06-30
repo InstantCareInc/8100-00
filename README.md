@@ -127,6 +127,17 @@ Diagnostic and test behavior is controlled by `#define` flags in `wabs.h` and `c
 - **serialB** — RS-485 transceiver; parity differs between host (odd) and remote (even/none for CPAC compatibility).
 - **State machines** in `wabs.c` drive host RS-485 polling, remote RS-485 polling, radio TX/RX, LED display, and activity aging.
 
+## Version history
+
+Tracked releases are maintained on git branches `v616` and `v620`. The only source difference between v6.16 and v6.20 is in `trunk/wabs.h` — no `.c` files changed.
+
+| Version | Git branch | LED display | Changes |
+|---------|------------|-------------|---------|
+| **6.16** | `v616` | 616 | Baseline release. `TIMEOUT_REMOTE_RS485_INPUT` = 2 (~16 ms inter-byte timeout during remote RS-485 polling). |
+| **6.20** | `v620` | 620 | Version bump. `TIMEOUT_REMOTE_RS485_INPUT` increased from 2 to 6 (~47 ms), giving remote units ~3× longer to receive RS-485 replies from field devices before abandoning a poll. Host RS-485 timing unchanged. |
+
+The `TIMEOUT_REMOTE_RS485_INPUT` value is used in the remote polling state machine (`POLL_DATA` in `wabs.c`). The timer resets on each received byte, so it acts as an inter-byte gap timeout rather than a total message timeout.
+
 ## History
 
 Original development by Venture Technologies, Inc. (Tom Goltz, Bob Halliday) for LifeLine, 2005–2007. The codebase traces back to the WABS2 (Gen 2) hardware platform, ported from an earlier PIC-based WABS1 design to the MSP430.
