@@ -1,8 +1,0 @@
-"./cpac.obj"
-"./cpu.obj"
-"./serialA.obj"
-"./serialB.obj"
-"./timers.obj"
-"./wabs.obj"
-"../lnk_msp430f1611.cmd"
--llibc.a

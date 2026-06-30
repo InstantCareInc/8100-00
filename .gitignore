@@ -1,2 +1,30 @@
 # OpenAI Codex project-local config
 .codex/
+
+# ==========================================
+# Code Composer Studio (CCS) Git Ignore
+# ==========================================
+
+# Ignore Build Outputs (Compiled binaries and object files)
+[Dd]ebug/
+[Rr]elease/
+*.out
+*.map
+*.obj
+*.o
+*.d
+
+# Ignore Local/Temporary IDE Settings and History
+.launches/
+.settings/org.eclipse.cdt.make.core.prefs
+.settings/org.eclipse.cdt.managedbuilder.core.prefs
+.settings/org.eclipse.core.runtime.prefs
+
+# Ignore SysConfig generated files (if you want to regenerate them on build)
+# Remove these two lines if you prefer to explicitly track generated code.
+# Generated_Source/
+# syscfg/
+
+# Ignore OS-specific temporary files
+Thumbs.db
+.DS_Store
