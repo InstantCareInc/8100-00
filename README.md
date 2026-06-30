@@ -9,7 +9,7 @@ Firmware for the **LifeLine Wireless Link** (WABS — Wireless Alert Buffer Syst
 | **MCU** | Texas Instruments MSP430F1611 |
 | **RF module** | MaxStream / Digi XT09 (9600 baud serial) |
 | **Toolchain** | Texas Instruments Code Composer Studio 21.2.x (MSP430 compiler 21.6.x) |
-| **Output image** | `8100-00/Release/8100-00.hex` |
+| **Output image** | [`8100-00-700.hex`](https://github.com/InstantCareInc/8100-00/releases/download/v7.00/8100-00-700.hex) ([v7.00 release](https://github.com/InstantCareInc/8100-00/releases/tag/v7.00)) |
 
 ## Overview
 
@@ -62,11 +62,11 @@ A single firmware image supports both roles. The main loop branches on `host_uni
 2. Open the CCS project folder `8100-00/8100-00/` in CCS (File → Open Projects from File System).
 3. Confirm the target device is **MSP430F1611** (Project → Properties → General).
 4. Build **Debug** for JTAG debugging, or **Release** for the production HEX image.
-5. Release output is written to `8100-00/Release/8100-00.hex`.
+5. Release output is written to `8100-00/Release/8100-00.hex`. Pre-built images for each version are published on [GitHub Releases](https://github.com/InstantCareInc/8100-00/releases).
 
 ## Programming
 
-Program the target MSP430F1611 using the Release HEX image and your standard LifeLine programming fixture or MSP430 programmer.
+Program the target MSP430F1611 using the Release HEX from [GitHub Releases](https://github.com/InstantCareInc/8100-00/releases/tag/v7.00) or your locally built image, and your standard LifeLine programming fixture or MSP430 programmer.
 
 On power-up, the 3-digit LED display shows the firmware version for two seconds (e.g. **700** for v7.00), followed by boot progress codes (**C1**, **C2**, **C3**) during initialization.
 
