@@ -1066,7 +1066,6 @@ void remove_alert(struct alert_data *);
 int  send_radio_alert(struct alert_data *, struct alert_data *);
 void remove_ack_alert(unsigned char, struct alert_data *, unsigned char);
 
-int  __low_level_init(void);
 void host_rs485_state_machine(void);
 void remote_rs485_state_machine(void);
 void remote_radio_state_machine(void);

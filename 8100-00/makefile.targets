@@ -1,0 +1,7 @@
+################################################################################
+# Project build hooks (included by Debug/Release makefiles; not overwritten by CCS)
+################################################################################
+
+# CCS enables the hex tool but leaves "all" depending only on the .out file.
+# Merging this prerequisite forces hex430 to run on every build.
+all: 8100-00.hex

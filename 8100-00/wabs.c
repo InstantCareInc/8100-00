@@ -4008,34 +4008,6 @@ void led_state_machine(void)
 // _____________________________________________________________________________
 // _____________________________________________________________________________
 //
-// Function:  __low_level_init
-//
-// Description:
-// ------------
-// This is called by the IAR cstartup code very, very early in the start
-// process.  We're using it here to halt the watchdog timer BEFORE memory
-// is initialized, as the IAR code isn't smart enough to do it, and the
-// 430F16xx series processors have enough RAM that the watchdog will go
-// off in the middle of the memory initization, preventing the processor
-// from ever starting.
-//
-// Design Notes:
-// -------------
-// Since the stack and memory haven't been initialized yet, this function
-// is very, very limited in what it can do.  Unless it is critical that
-// something be done BEFORE memory is initialized, the code should be placed
-// at the beginning of the main function instead.
-// _____________________________________________________________________________
-//
-int __low_level_init(void)
-{
-    WDTCTL = WDTPW | WDTHOLD;                                // Stop watchdog timer
-    return (1);
-}
-
-// _____________________________________________________________________________
-// _____________________________________________________________________________
-//
 // Function:  main
 //
 // Description:
