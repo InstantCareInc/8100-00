@@ -139,7 +139,7 @@ The MSP430 hardware watchdog is separate from `CpuMonitorWatchdog()` in `cpu.c`,
 |-------|----------|
 | **Startup hold** | `_system_pre_init()` (with `#pragma RETAIN`) and `cpu_initCpu()` hold WDT via `WDTHOLD` while C runtime init and application setup run. Requires `CINIT_HOLD_WDT` in the CCS linker settings. |
 | **Runtime** | `cpu_wdt_init()` runs immediately before the main loops; `cpu_wdt_kick()` is called between each state machine in the loop. Configuration is centralized in `cpu_wdt_configure()` (`cpu.c`). |
-| **Switch soft reset** | When a debounced DIP/rotary switch change is detected, `cpu_compare_switches()` kicks WDT once, then calls `cpu_Crash()` (`for(;;)`). The hung main loop stops kicking WDT; overflow triggers a PUC reset and the normal boot display sequence. |
+| **Switch soft reset** | When a debounced DIP/rotary switch change is detected, `cpu_compare_switches()` calls `cpu_soft_reset()`, which forces an immediate PUC via an invalid WDT password write (same boot display sequence as a power cycle). |
 
 Release builds must link `system_pre_init.c` with `#pragma RETAIN(_system_pre_init)` so the CCS runtime does not discard the early WDT hold hook at `-O2`.
 

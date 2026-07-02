@@ -319,6 +319,7 @@ extern int  CpuMonitorWatchdog (void);
 //
 
 extern void cpu_ResetCpu(void);
+extern void cpu_soft_reset(void);
 extern void cpu_initCpu(void);
 extern void cpu_Crash(void);
 extern void cpu_wdt_hold(void);

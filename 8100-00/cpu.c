@@ -305,7 +305,7 @@ void cpu_Crash()
 //
 // Description:
 // ------------
-// Resets the CPU, for dev. mode only.
+// Forces an immediate PUC by writing an invalid WDT password.
 //
 // Design Notes:
 // -------------
@@ -314,6 +314,27 @@ void cpu_Crash()
 void cpu_ResetCpu(void)
 {
     WDTCTL = 0xFF;      // Reset CPU by violating the watchdog register
+}
+
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+//
+// Function:  cpu_soft_reset
+//
+// Description:
+// ------------
+// Soft reset the CPU after a debounced switch change (same result as power-on).
+//
+// Design Notes:
+// -------------
+// Hang-until-WDT-timeout (cpu_Crash) is unreliable on the CCS port; an explicit
+// WDT password violation produces the same PUC reset as the original IAR behavior.
+// _____________________________________________________________________________
+//
+void cpu_soft_reset(void)
+{
+    _DINT();
+    cpu_ResetCpu();
 }
 
 // _____________________________________________________________________________
@@ -435,8 +456,7 @@ void cpu_compare_switches()
         if (++debounceDIPcompare > 250)
         {
             // Debounce has been successful, go into a Watchdog Reset.
-            cpu_wdt_kick();
-            cpu_Crash();
+            cpu_soft_reset();
         }
     }
     else
