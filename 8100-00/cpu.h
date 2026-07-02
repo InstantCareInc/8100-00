@@ -281,22 +281,8 @@ extern int  CpuMonitorWatchdog (void);
 
 
 
-// Watchdog timer....Reset mode, clocked by ACLK, maximum interval
-// When running a mHz-range clock, the maximum divisor on the watchdog (32k)
-// results in an insanely-fast watchdog.
-
-
+// Hardware watchdog (WDTCTL): reset mode, ACLK, ~32 ms interval at 1 MHz ACLK.
 #define CPU_WATCHDOG_TIMER                   1
-
-
-#define CPU_WATCHDOG_STOP   (WDTCTL = (WDTPW | WDTHOLD | WDTNMI | WDTNMIES))         // Stop watchdog timer
-
-#if  CPU_WATCHDOG_TIMER
-  #define CPU_WATCHDOG_RESET  (WDTCTL = (WDTPW | WDTCNTCL | WDTSSEL | WDTNMI | WDTNMIES))   // Kick watchdog timer (also starts it)
-#else
-  #define CPU_WATCHDOG_RESET  (WDTCTL = (WDTPW | WDTHOLD | WDTNMI | WDTNMIES))              // Stop watchdog timer
-#endif
-#define CPU_WATCHDOG_INIT   (WDTCTL = (WDTPW | WDTCNTCL | WDTSSEL | WDTNMI | WDTNMIES))
 
 // _____________________________________________________________________________
 // _____________________________________________________________________________
@@ -335,6 +321,10 @@ extern int  CpuMonitorWatchdog (void);
 extern void cpu_ResetCpu(void);
 extern void cpu_initCpu(void);
 extern void cpu_Crash(void);
+extern void cpu_wdt_hold(void);
+extern void cpu_wdt_configure(void);
+extern void cpu_wdt_kick(void);
+extern void cpu_wdt_init(void);
 extern int  cpu_readCfgDIP(void);
 extern int  cpu_readNetDIP(void);
 extern int  cpu_readSpareDIP(void);

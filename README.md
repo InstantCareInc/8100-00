@@ -131,6 +131,18 @@ Diagnostic and test behavior is controlled by `#define` flags in `wabs.h` and `c
 - **serialB** — RS-485 transceiver; parity differs between host (odd) and remote (even/none for CPAC compatibility).
 - **State machines** in `wabs.c` drive host RS-485 polling, remote RS-485 polling, radio TX/RX, LED display, and activity aging.
 
+### Hardware watchdog (WDTCTL)
+
+The MSP430 hardware watchdog is separate from `CpuMonitorWatchdog()` in `cpu.c`, which is a software timer for periodic MaxStream radio re-init.
+
+| Phase | Behavior |
+|-------|----------|
+| **Startup hold** | `_system_pre_init()` (with `#pragma RETAIN`) and `cpu_initCpu()` hold WDT via `WDTHOLD` while C runtime init and application setup run. Requires `CINIT_HOLD_WDT` in the CCS linker settings. |
+| **Runtime** | `cpu_wdt_init()` runs immediately before the main loops; `cpu_wdt_kick()` is called between each state machine in the loop. Configuration is centralized in `cpu_wdt_configure()` (`cpu.c`). |
+| **Switch soft reset** | When a debounced DIP/rotary switch change is detected, `cpu_compare_switches()` kicks WDT once, then calls `cpu_Crash()` (`for(;;)`). The hung main loop stops kicking WDT; overflow triggers a PUC reset and the normal boot display sequence. |
+
+Release builds must link `system_pre_init.c` with `#pragma RETAIN(_system_pre_init)` so the CCS runtime does not discard the early WDT hold hook at `-O2`.
+
 ## Version history
 
 Tracked releases are maintained on git branches `v700`, `v616`, and `v620`. **v7.00** was forked from **v6.16** — it has no functional changes relative to that release, but it does not include the RS-485 timing change introduced in **v6.20**.

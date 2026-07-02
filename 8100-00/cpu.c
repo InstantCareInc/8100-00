@@ -81,7 +81,7 @@ void cpu_initCpu(void)
 
     _DINT();                // Disable interrupts during hardware initialization
 
-    WDTCTL = WDTPW | WDTHOLD;                               // Stop watchdog timer
+    cpu_wdt_hold();
 
     // bh - v2.14 - clear out rssi averaging structures
     for (i = 0;  i < NUM_TXIDS; i ++)
@@ -233,6 +233,54 @@ void cpu_initCpu(void)
 // _____________________________________________________________________________
 // _____________________________________________________________________________
 //
+// Hardware watchdog (WDTCTL) — centralized configuration for CCS/IAR parity.
+//
+// _____________________________________________________________________________
+//
+void cpu_wdt_hold(void)
+{
+    WDTCTL = WDTPW | WDTHOLD;
+}
+
+#if CPU_WATCHDOG_TIMER
+
+void cpu_wdt_configure(void)
+{
+    // Watchdog mode (WDTTMSEL=0), ACLK, WDTIS=00 (~32 ms at 1 MHz ACLK).
+    WDTCTL = WDTPW | WDTCNTCL | WDTSSEL;
+}
+
+void cpu_wdt_kick(void)
+{
+    cpu_wdt_configure();
+}
+
+void cpu_wdt_init(void)
+{
+    cpu_wdt_configure();
+}
+
+#else
+
+void cpu_wdt_configure(void)
+{
+}
+
+void cpu_wdt_kick(void)
+{
+    cpu_wdt_hold();
+}
+
+void cpu_wdt_init(void)
+{
+    cpu_wdt_hold();
+}
+
+#endif
+
+// _____________________________________________________________________________
+// _____________________________________________________________________________
+//
 // Function:  cpu_Crash
 //
 // Description:
@@ -241,6 +289,7 @@ void cpu_initCpu(void)
 //
 // Design Notes:
 // -------------
+// Requires hardware WDT to be running; entered from switch-change debounce path.
 // This function will never return
 // _____________________________________________________________________________
 //
@@ -386,6 +435,7 @@ void cpu_compare_switches()
         if (++debounceDIPcompare > 250)
         {
             // Debounce has been successful, go into a Watchdog Reset.
+            cpu_wdt_kick();
             cpu_Crash();
         }
     }

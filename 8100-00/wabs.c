@@ -4061,12 +4061,6 @@ void main(void)
     serialB_txDone();               // Make sure we're set to receive
     cpu_write_led_display(' ', 'C', '2', 3);
 
-    // Watchdog timer
-
-#if CPU_WATCHDOG_TIMER
-    CPU_WATCHDOG_INIT;                // Set Watchdog Timer
-#endif
-
     srand(read_address_switch() + timer_freerunning + TBR);         // Seed the random number generator from timer B to prepare for the random serial number
     radio_serial_number = rand();           // Start with a random serial number
 
@@ -4091,17 +4085,21 @@ void main(void)
 
     cpu_write_led_display(' ', ' ', ' ', 0);
 
+#if CPU_WATCHDOG_TIMER
+    cpu_wdt_init();                 // Start hardware watchdog before main loops
+#endif
+
     if (host_unit)
     {
         for (;;)
         {
-            CPU_WATCHDOG_RESET;                 // Reset Watchdog Timer
+            cpu_wdt_kick();                 // Reset Watchdog Timer
             host_radio_state_machine();         // MaxStream radio state machine
-            CPU_WATCHDOG_RESET;                 // Reset Watchdog Timer
+            cpu_wdt_kick();                 // Reset Watchdog Timer
             host_rs485_state_machine();         // State machine that handles RS-485 traffic from the Lifeline WABS controller
-            CPU_WATCHDOG_RESET;                 // Reset Watchdog Timer
+            cpu_wdt_kick();                 // Reset Watchdog Timer
             led_state_machine();                // Update the LED digits
-            CPU_WATCHDOG_RESET;                 // Reset Watchdog Timer
+            cpu_wdt_kick();                 // Reset Watchdog Timer
             activity_check();                   // And count down the timers to age out inactive units
             cpu_compare_switches ();            // bh - v2.10 - Go into Soft Reset if switches change
         }
@@ -4118,13 +4116,13 @@ void main(void)
 
         for (;;)
         {
-            CPU_WATCHDOG_RESET;                 // Reset Watchdog Timer
+            cpu_wdt_kick();                 // Reset Watchdog Timer
             remote_rs485_state_machine();       // GE module polling state machine
-            CPU_WATCHDOG_RESET;                 // Reset Watchdog Timer
+            cpu_wdt_kick();                 // Reset Watchdog Timer
             remote_radio_state_machine();       // Run the MaxStream radio state machine
-            CPU_WATCHDOG_RESET;                 // Reset Watchdog Timer
+            cpu_wdt_kick();                 // Reset Watchdog Timer
             led_state_machine();                // Update the LED digits
-            CPU_WATCHDOG_RESET;                 // Reset Watchdog Timer
+            cpu_wdt_kick();                 // Reset Watchdog Timer
             activity_check();                   // And count down the timers to age out inactive units
             cpu_compare_switches ();            // bh - v2.10 - Go into Soft Reset if switches change
         }
