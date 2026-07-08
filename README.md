@@ -9,7 +9,7 @@ Firmware for the **LifeLine Wireless Link** (WABS — Wireless Alert Buffer Syst
 | **MCU** | Texas Instruments MSP430F1611 |
 | **RF module** | MaxStream / Digi XT09 (9600 baud serial) |
 | **Toolchain** | Texas Instruments Code Composer Studio 21.2.x (MSP430 compiler 21.6.x) |
-| **Output image** | [`8100-00-700.hex`](https://github.com/InstantCareInc/8100-00/releases/download/v7.00/8100-00-700.hex) ([v7.00 release](https://github.com/InstantCareInc/8100-00/releases/tag/v7.00)) |
+| **Output image** | [`8100-00-700.hex`](https://github.com/InstantCareInc/8100-00/releases/download/v7.00/8100-00-704.hex) ([v7.04 release](https://github.com/InstantCareInc/8100-00/releases/tag/v7.04)) |
 
 ## Overview
 
