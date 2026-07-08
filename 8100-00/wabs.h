@@ -149,7 +149,7 @@
                                    * n => Beta version Id
                                    */
 #define VERSION_MAJOR 7
-#define VERSION_MINOR 0
+#define VERSION_MINOR 4
 
 #define AMBIENT_MAX                    80
 
