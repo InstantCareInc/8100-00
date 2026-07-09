@@ -149,7 +149,7 @@ Tracked releases are maintained on git branches `v700`, `v616`, and `v620`. **v7
 
 | Version | Git branch | LED display | Changes |
 |---------|------------|-------------|---------|
-| **7.00** | `v700` | 700 | Forked from v6.16. Toolchain migration from IAR Embedded Workbench to Code Composer Studio; no functional firmware changes from v6.16. Does not include the v6.20 `TIMEOUT_REMOTE_RS485_INPUT` change. |
+| **7.04** | `v700` | 700 | Forked from v6.16. Toolchain migration from IAR Embedded Workbench to Code Composer Studio; no functional firmware changes from v6.16. Does not include the v6.20 `TIMEOUT_REMOTE_RS485_INPUT` change. |
 | **6.20** | `v620` | 620 | `TIMEOUT_REMOTE_RS485_INPUT` increased from 2 to 6 (~47 ms), giving remote units ~3× longer to receive RS-485 replies from field devices before abandoning a poll. Host RS-485 timing unchanged. |
 | **6.16** | `v616` | 616 | Baseline IAR release. `TIMEOUT_REMOTE_RS485_INPUT` = 2 (~16 ms inter-byte timeout during remote RS-485 polling). |
 
