@@ -5,7 +5,7 @@ Firmware for the **LifeLine Wireless Link** (WABS — Wireless Alert Buffer Syst
 | | |
 |---|---|
 | **Part number** | 8100-00 |
-| **Firmware version** | 7.00 (`VERSION_MAJOR` / `VERSION_MINOR` in `wabs.h`) |
+| **Firmware version** | 7.04 (`VERSION_MAJOR` / `VERSION_MINOR` in `wabs.h`) |
 | **MCU** | Texas Instruments MSP430F1611 |
 | **RF module** | MaxStream / Digi XT09 (9600 baud serial) |
 | **Toolchain** | Texas Instruments Code Composer Studio 21.2.x (MSP430 compiler 21.6.x) |
